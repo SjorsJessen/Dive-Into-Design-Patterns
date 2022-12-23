@@ -37,34 +37,23 @@ public class Transport
 
 public class CombustionEngine : Engine
 {
-    public void Move()
-    {
-        Console.WriteLine("Driving with a combustion engine.");
-    }
+    public void Move() => Console.WriteLine("Driving with a combustion engine.");
 }
 
 public class ElectricEngine : Engine
 {
-    public void Move()
-    {
-        Console.WriteLine("Electric driving.");
-    }
+    public void Move() => Console.WriteLine("Electric driving.");
 }
 
 public class Robot : Driver
 {
-    public void Navigate()
-    {
-        Console.WriteLine("Robot driver.");
-    }
+    public void Navigate() => Console.WriteLine("Robot driver.");
+    
 }
 
 public class Human : Driver
 {
-    public void Navigate()
-    {
-        Console.WriteLine("Human driver");
-    }
+    public void Navigate() =>  Console.WriteLine("Human driver");
 }
 
 public class Cargo 

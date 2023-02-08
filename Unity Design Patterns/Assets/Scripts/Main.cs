@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class Main : MonoBehaviour
+namespace DesignPatterns
 {
-    private void Start()
+    public class Main : MonoBehaviour
     {
-        Debug.Log("Main script is started.");
+        private void Start()
+        {
+            Debug.Log("Main script is started.");
+        }
     }
 }

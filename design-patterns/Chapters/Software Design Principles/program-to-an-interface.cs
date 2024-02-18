@@ -41,7 +41,7 @@ public abstract class Company
         IEnumerable<IEmployee> employees = GetEmployees();
         foreach(IEmployee employee in employees)
         {
-            employee.DoWork();
+            employee.Work();
         }
     }
 
@@ -50,25 +50,25 @@ public abstract class Company
 
 public class Designer : IEmployee
 {
-    public void DoWork() => Console.WriteLine("Designing an Architecture");
+    public void Work() => Console.WriteLine("Designing an Architecture");
 }
 
 public class Programmer : IEmployee
 {
-    public void DoWork() => Console.WriteLine("Writing Code");
+    public void Work() => Console.WriteLine("Writing Code");
 }
 
 public class Tester : IEmployee
 {
-    public void DoWork() => Console.WriteLine("Testing Software");
+    public void Work() => Console.WriteLine("Testing Software");
 }
 
 public class Artist : IEmployee
 {
-    public void DoWork() => Console.WriteLine("Creating Art");
+    public void Work() => Console.WriteLine("Creating Art");
 }
 
 public interface IEmployee
 {
-    void DoWork();
+    void Work();
 }

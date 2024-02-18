@@ -1,10 +1,11 @@
 ﻿namespace DesignPatterns;
 
-class Program 
+class Program
 {
-    static void Main(string[] args)
+    private static void Main(string[] args)
     {
         // ProgramToAnInterfaceExample.Run();
-        FavorCompositionOverInheritance.Run();
+        // FavorCompositionOverInheritance.Run();
+        OpenClosedPrinciple.Run();
     }
 }

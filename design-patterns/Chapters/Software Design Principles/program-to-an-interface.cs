@@ -13,62 +13,62 @@ public static class ProgramToAnInterfaceExample
 
 public class GameDevCompany : Company
 {
-    protected override Employee[] GetEmployees()
+    protected override IEnumerable<IEmployee> GetEmployees()
     {
-        Employee[] employees = { new Tester(), new Programmer() };
+        IEmployee[] employees = { new Tester(), new Programmer() };
         return employees;
     }
 }
 
 public class DesignCompany : Company
 {
-    protected override Employee[] GetEmployees()
+    protected override IEnumerable<IEmployee> GetEmployees()
     {
-        Employee[] employees = { new Designer(), new Artist() };
+        IEmployee[] employees = { new Designer(), new Artist() };
         return employees;
     }
 }
 
 public abstract class Company 
 {
-    public Company() 
+    protected Company() 
     {
-        this.CreateSoftware();
+        CreateSoftware();
     }
 
     private void CreateSoftware()
     {
-        Employee[] employees = GetEmployees();
-        foreach(Employee employee in employees)
+        IEnumerable<IEmployee> employees = GetEmployees();
+        foreach(IEmployee employee in employees)
         {
             employee.DoWork();
         }
     }
 
-    protected abstract Employee[] GetEmployees();
+    protected abstract IEnumerable<IEmployee> GetEmployees();
 }
 
-public class Designer : Employee
+public class Designer : IEmployee
 {
     public void DoWork() => Console.WriteLine("Designing an Architecture");
 }
 
-public class Programmer : Employee
+public class Programmer : IEmployee
 {
     public void DoWork() => Console.WriteLine("Writing Code");
 }
 
-public class Tester : Employee
+public class Tester : IEmployee
 {
     public void DoWork() => Console.WriteLine("Testing Software");
 }
 
-public class Artist : Employee
+public class Artist : IEmployee
 {
     public void DoWork() => Console.WriteLine("Creating Art");
 }
 
-public interface Employee
+public interface IEmployee
 {
     void DoWork();
 }

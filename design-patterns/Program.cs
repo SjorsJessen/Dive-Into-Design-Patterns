@@ -4,8 +4,8 @@ class Program
 {
     private static void Main(string[] args)
     {
-        // ProgramToAnInterfaceExample.Run();
+        ProgramToAnInterfaceExample.Run();
         // FavorCompositionOverInheritance.Run();
-        OpenClosedPrinciple.Run();
+        // OpenClosedPrinciple.Run();
     }
 }

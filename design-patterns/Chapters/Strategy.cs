@@ -11,7 +11,7 @@ public static class StrategyPatternExample
 
 public class Client
 {
-    private readonly Dictionary<TransportationMode, IStrategy?> _strategyMapper = new();
+    private readonly Dictionary<TransportationMode, IStrategy> _strategyMapper = new();
 
     public Client() => Bind();
 
@@ -25,7 +25,8 @@ public class Client
     public void Execute(string selectedCity, TransportationMode transportationMode)
     {
         var context = new Context();
-        context.Strategy = _strategyMapper[transportationMode];
+        var strategy = _strategyMapper[transportationMode];
+        context.SetStrategy(strategy);
 
         var optimalRoute = context.Execute(selectedCity); // Result of the chosen/executed strategy algorithm.
         Console.WriteLine(optimalRoute);
@@ -34,23 +35,18 @@ public class Client
 
 public class Context
 {
-    public IStrategy? Strategy
-    {
-        set => _strategy = value;
-    }
-
     private IStrategy? _strategy;
 
+    public void SetStrategy(IStrategy strategy)
+    {
+        _strategy = strategy;
+    }
+    
     public string? Execute(string city)
     {
         var result = _strategy?.Execute(city);
         return result;
     }
-}
-
-public interface IStrategy
-{
-    string Execute(string city);
 }
 
 internal class CarStrategy : IStrategy
@@ -69,7 +65,6 @@ internal class PublicTransportStrategy : IStrategy
     {
         var result = $"Found optimal public transport route for: {city}";
         // Implement actual algorithm here which finds the optimal route for a public transport and return the route.
-
         return result;
     }
 }
@@ -82,6 +77,11 @@ internal class BikeStrategy : IStrategy
         // Implement actual algorithm here which finds the optimal route for a bike and return the route.
         return result;
     }
+}
+
+public interface IStrategy
+{
+    string Execute(string city);
 }
 
 public enum TransportationMode

@@ -58,6 +58,7 @@ internal class CarStrategy : IStrategy
     public string Execute(string city)
     {
         var result = $"Found optimal car route for: {city}";
+        // Implement actual algorithm here which finds the optimal route for a car and return the route.
         return result;
     }
 }
@@ -67,6 +68,8 @@ internal class PublicTransportStrategy : IStrategy
     public string Execute(string city)
     {
         var result = $"Found optimal public transport route for: {city}";
+        // Implement actual algorithm here which finds the optimal route for a public transport and return the route.
+
         return result;
     }
 }
@@ -76,6 +79,7 @@ internal class BikeStrategy : IStrategy
     public string Execute(string city)
     {
         var result = $"Looking for optimal bike routing in {city}";
+        // Implement actual algorithm here which finds the optimal route for a bike and return the route.
         return result;
     }
 }

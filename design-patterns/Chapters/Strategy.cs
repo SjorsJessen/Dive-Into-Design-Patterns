@@ -27,7 +27,7 @@ public class Client
         var context = new Context();
         context.Strategy = _strategyMapper[transportationMode];
 
-        var optimalRoute = context.Execute(selectedCity); // Result of the executed strategy algorithm.
+        var optimalRoute = context.Execute(selectedCity); // Result of the chosen/executed strategy algorithm.
         Console.WriteLine(optimalRoute);
     }
 }

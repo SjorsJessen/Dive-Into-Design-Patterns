@@ -1,6 +1,6 @@
 namespace DesignPatterns.Chapters;
 
-public static class StrategyPatternExample
+public static class Strategy
 {
     public static void Run(string selectedCity, TransportationMode transportationMode)
     {
@@ -28,7 +28,8 @@ public class Client
         var strategy = _strategyMapper[transportationMode];
         context.SetStrategy(strategy);
 
-        var optimalRoute = context.Execute(selectedCity); // Result of the chosen/executed strategy algorithm.
+        // Result of the chosen/executed strategy algorithm.
+        var optimalRoute = context.Execute(selectedCity);
         Console.WriteLine(optimalRoute);
     }
 }

@@ -9,6 +9,18 @@ class Program
         // ProgramToAnInterfaceExample.Run();
         // FavorCompositionOverInheritance.Run();
         // OpenClosedPrinciple.Run();
-        StrategyPatternExample.Run("Rome", TransportationMode.PublicTransport);
+
+        // Creational Patterns
+        {
+            FactoryMethod.Run();
+        }
+        // Structural Patterns
+        {
+            
+        }
+        // Behavioral Patterns
+        {
+            Strategy.Run("Rome", TransportationMode.PublicTransport);
+        }
     }
 }

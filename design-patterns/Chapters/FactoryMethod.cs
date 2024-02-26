@@ -67,7 +67,7 @@ public abstract class Dialog
 {
     protected void Render()
     {
-        var button = CreateButton();
+        IButton button = CreateButton();
         button.OnClick();
         button.Render();
     }

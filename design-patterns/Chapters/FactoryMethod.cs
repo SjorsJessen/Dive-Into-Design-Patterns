@@ -59,8 +59,8 @@ internal class WindowsButton : IButton
 internal class WebButton : IButton
 {
     public WebButton() => Render();
-    public void OnClick() => Console.WriteLine("Clicked on Browser button");
-    public void Render() => Console.WriteLine("Rendering Browser Button");
+    public void OnClick() => Console.WriteLine("Clicked on Web button");
+    public void Render() => Console.WriteLine("Rendering Web Button");
 }
 
 public abstract class Dialog

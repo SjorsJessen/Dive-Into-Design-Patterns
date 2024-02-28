@@ -12,7 +12,8 @@ class Program
 
         // Creational Patterns
         {
-            FactoryMethod.Run();
+            // FactoryMethod.Run();
+            AbstractFactory.Run();
         }
         // Structural Patterns
         {

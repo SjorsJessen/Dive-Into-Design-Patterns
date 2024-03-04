@@ -13,26 +13,24 @@ public class BuilderApplication
 {
     public void Build()
     {
-        var director = new Director();
-        
         // Build Car Product
         var carBuilder = new CarBuilder();
-        director.BuildSportsCar(carBuilder);
-        director.BuildSportsSUV(carBuilder); //Overrides previous values
-        var car = carBuilder.GetProduct();
-        Console.WriteLine($"Build car: {car}");
+        Director.BuildSportsCar(carBuilder);
+        Director.BuildSportsSUV(carBuilder); // Overrides previous built car's values
+        var car = carBuilder.GetProduct() as Car;
+        Console.WriteLine($"Build car with a {car?.EngineType} engine");
         
         // Build Manual Product
         var carManualBuilder = new ManualBuilder();
-        director.BuildSportsSUV(carManualBuilder);
-        var manual = carManualBuilder.GetProduct();
-        Console.WriteLine($"Car manual: {manual}");
+        Director.BuildSportsSUV(carManualBuilder);
+        var manual = carManualBuilder.GetProduct() as Manual;
+        Console.WriteLine($"Build manual: {manual?.EngineDescription}");
     }
 }
 
-public class Director
+public abstract class Director
 {
-    public void BuildSportsCar(IBuilder builder)
+    public static void BuildSportsCar(IBuilder builder)
     {
         builder.Reset();
         builder.SetEngine("V8");
@@ -41,7 +39,7 @@ public class Director
         builder.SetGPS(true);
     }
     
-    public void BuildSportsSUV(IBuilder builder)
+    public static void BuildSportsSUV(IBuilder builder)
     {
         builder.Reset();
         builder.SetEngine("V12");
